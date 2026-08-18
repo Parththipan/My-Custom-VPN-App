@@ -10,7 +10,7 @@
         android:label="My Custom VPN"
         android:roundIcon="@android:drawable/sym_def_app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        android:theme="@style/Theme.MyCustomVPN">
         <activity
             android:name=".MainActivity"
             android:exported="true">
