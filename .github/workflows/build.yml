@@ -19,15 +19,16 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Grant Execute Permission for Gradlew
-        run: chmod +x gradlew || true
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.2
 
-      - name: Build Android Release APK
-        run: ./gradlew assembleRelease --stacktrace || ./gradlew assembleDebug --stacktrace
+      - name: Build Android Debug APK
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload Output APK
         uses: actions/upload-artifact@v4
         with:
-          name: My-Dialog-Tunnel-VPN
-          path: app/build/outputs/apk/**/*.apk
-          
+          name: My-Custom-VPN-APK
+          path: app/build/outputs/apk/debug/*.apk
